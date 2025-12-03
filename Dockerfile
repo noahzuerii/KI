@@ -5,6 +5,16 @@ FROM opensuse/leap:15.5
 LABEL maintainer="KI Project"
 LABEL description="KI-Assistent für Wetter- und Nachrichtenfragen"
 
+# Proxy-Konfiguration als Build-Argument
+ARG HTTP_PROXY=http://proxy4zscaler.migros.ch:9480
+ARG HTTPS_PROXY=http://proxy4zscaler.migros.ch:9480
+
+# Umgebungsvariablen für Proxy setzen
+ENV HTTP_PROXY=${HTTP_PROXY}
+ENV HTTPS_PROXY=${HTTPS_PROXY}
+ENV http_proxy=${HTTP_PROXY}
+ENV https_proxy=${HTTPS_PROXY}
+
 # System-Updates und Python installieren
 RUN zypper --non-interactive refresh && \
     zypper --non-interactive install -y \
