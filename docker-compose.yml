@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  ki-assistant:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ki-assistant
+    stdin_open: true    # Für interaktive Eingabe
+    tty: true           # Für Terminal-Unterstützung
+    environment:
+      - OPENWEATHERMAP_API_KEY=${OPENWEATHERMAP_API_KEY:-}
+      - NEWSAPI_KEY=${NEWSAPI_KEY:-}
+      - DEFAULT_CITY=${DEFAULT_CITY:-Berlin}
+    restart: unless-stopped
