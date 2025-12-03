@@ -82,11 +82,10 @@ Die Anwendung kann über Umgebungsvariablen oder eine `.env` Datei konfiguriert 
 
 | Variable | Beschreibung | Standard |
 |----------|--------------|----------|
-| `OPENWEATHERMAP_API_KEY` | API-Key für OpenWeatherMap ([hier kostenlos holen](https://openweathermap.org/api)) | - |
 | `NEWSAPI_KEY` | API-Key für NewsAPI ([hier kostenlos holen](https://newsapi.org/)) | - |
-| `DEFAULT_CITY` | Standard-Stadt für Wetterabfragen | Berlin |
+| `DEFAULT_CITY` | Standard-Stadt für Wetterabfragen | Zürich |
 
-**Hinweis**: Ohne API-Keys zeigt die Anwendung Demo-Daten an.
+**Hinweis**: Für Wetterdaten wird die kostenlose Open-Meteo API verwendet (kein API-Key erforderlich). Ohne NewsAPI-Key zeigt die Anwendung Demo-Nachrichten an.
 
 ## Projektstruktur
 
