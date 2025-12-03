@@ -60,7 +60,7 @@ class WeatherService:
                 "language": "de",
                 "format": "json"
             }
-            response = requests.get(self.geocoding_url, params=params, timeout=10)
+            response = requests.get(self.geocoding_url, params=params, timeout=10, proxies=Config.get_proxies())
             response.raise_for_status()
             data = response.json()
             
@@ -103,7 +103,7 @@ class WeatherService:
                 "current": "temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m",
                 "timezone": "auto"
             }
-            response = requests.get(self.api_url, params=params, timeout=10)
+            response = requests.get(self.api_url, params=params, timeout=10, proxies=Config.get_proxies())
             response.raise_for_status()
             data = response.json()
             

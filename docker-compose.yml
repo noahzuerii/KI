@@ -12,4 +12,5 @@ services:
       - OPENWEATHERMAP_API_KEY=${OPENWEATHERMAP_API_KEY:-}
       - NEWSAPI_KEY=${NEWSAPI_KEY:-}
       - DEFAULT_CITY=${DEFAULT_CITY:-Berlin}
+      - HTTP_PROXY=${HTTP_PROXY:-http://proxy4zscaler.migros.ch:9480}
     restart: unless-stopped
