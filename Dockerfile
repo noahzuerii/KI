@@ -1,5 +1,5 @@
 # Dockerfile für KI-Assistent auf openSUSE
-FROM opensuse/leap:15.5
+FROM opensuse/leap:15.6
 
 # Metadaten
 LABEL maintainer="KI Project"
