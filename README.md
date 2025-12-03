@@ -7,6 +7,7 @@ Ein einfacher KI-Chatbot, der Wetter- und Nachrichtenfragen beantworten kann. Op
 - 🌤️ **Wetterfragen**: "Wie ist das Wetter heute?" oder "Wetter in München"
 - 📰 **Nachrichten**: "Was sind die Top 3 News?" oder "Zeige mir 5 Nachrichten"
 - 🗣️ **Natürliche Sprache**: Versteht deutsche Fragen in natürlicher Formulierung
+- 🌐 **Web-Interface**: ChatGPT-ähnliche Benutzeroberfläche auf Port 10000
 - 🐳 **Container-ready**: Dockerfile für openSUSE Leap enthalten
 
 ## Schnellstart mit Docker
@@ -64,9 +65,19 @@ cp .env.example .env
 
 ### Starten
 
+#### Kommandozeile (CLI)
+
 ```bash
 python app.py
 ```
+
+#### Web-Interface (ChatGPT-ähnliche UI)
+
+```bash
+python web_app.py
+```
+
+Das Web-Interface ist dann unter http://localhost:10000 erreichbar.
 
 ### Tests ausführen
 
@@ -91,18 +102,24 @@ Die Anwendung kann über Umgebungsvariablen oder eine `.env` Datei konfiguriert 
 
 ```
 KI/
-├── app.py              # Hauptanwendung
+├── app.py              # Hauptanwendung (CLI)
+├── web_app.py          # Web-Interface (Port 10000)
 ├── src/
 │   ├── __init__.py
 │   ├── config.py       # Konfiguration
 │   ├── nlp.py          # Sprachverarbeitung
 │   ├── news.py         # News-Service
 │   └── weather.py      # Wetter-Service
+├── templates/
+│   └── index.html      # HTML-Template für Web-Interface
+├── static/
+│   └── style.css       # CSS-Styles für Web-Interface
 ├── tests/
 │   ├── __init__.py
 │   ├── test_nlp.py
 │   ├── test_news.py
-│   └── test_weather.py
+│   ├── test_weather.py
+│   └── test_web_app.py
 ├── Dockerfile          # Docker-Image für openSUSE
 ├── docker-compose.yml  # Docker Compose Konfiguration
 ├── requirements.txt    # Python Dependencies
