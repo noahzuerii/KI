@@ -6,6 +6,9 @@ import requests
 from .config import Config
 
 
+# Konvertierungsfaktor von km/h zu m/s
+KMH_TO_MS = 3.6
+
 # Mapping von WMO Wettercodes zu deutschen Beschreibungen
 WMO_CODES = {
     0: "sonnig",
@@ -115,7 +118,7 @@ class WeatherService:
                 "feels_like": current["apparent_temperature"],
                 "humidity": current["relative_humidity_2m"],
                 "description": description,
-                "wind_speed": round(current["wind_speed_10m"] / 3.6, 1)  # km/h zu m/s
+                "wind_speed": round(current["wind_speed_10m"] / KMH_TO_MS, 1)
             }
         except requests.RequestException as e:
             return {
