@@ -14,10 +14,10 @@ class Config:
     # Placeholder-Wert für nicht konfigurierte API-Keys
     API_KEY_PLACEHOLDER = "your_api_key_here"
     
-    OPENWEATHERMAP_API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
     NEWSAPI_KEY = os.getenv("NEWSAPI_KEY")
-    DEFAULT_CITY = os.getenv("DEFAULT_CITY", "Berlin")
+    DEFAULT_CITY = os.getenv("DEFAULT_CITY", "Zürich")
     
     # API URLs
-    WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
+    WEATHER_API_URL = "https://api.open-meteo.com/v1/forecast"
+    GEOCODING_API_URL = "https://geocoding-api.open-meteo.com/v1/search"
     NEWS_API_URL = "https://newsapi.org/v2/top-headlines"
