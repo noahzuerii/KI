@@ -37,7 +37,7 @@ class NewsService:
                 "pageSize": count,
                 "apiKey": self.api_key
             }
-            response = requests.get(self.api_url, params=params, timeout=10)
+            response = requests.get(self.api_url, params=params, timeout=10, proxies=Config.get_proxies())
             response.raise_for_status()
             data = response.json()
             
