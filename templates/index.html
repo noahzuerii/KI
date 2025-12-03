@@ -136,7 +136,8 @@
         }
 
         function formatMessage(text) {
-            // Escape HTML to prevent XSS
+            // Escape HTML entities to prevent XSS attacks
+            // Using textContent assignment is a secure method that escapes all HTML
             const escapeHtml = (str) => {
                 const div = document.createElement('div');
                 div.textContent = str;
@@ -145,6 +146,7 @@
             
             const escaped = escapeHtml(text);
             // Convert newlines to <br> and wrap in paragraphs
+            // Note: <br> is safe as we've already escaped user input
             return escaped.split('\n\n').map(para => 
                 `<p>${para.replace(/\n/g, '<br>')}</p>`
             ).join('');

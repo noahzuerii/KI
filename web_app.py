@@ -46,7 +46,10 @@ class WebKIAssistant:
             return self.weather_service.format_weather(weather_data)
 
         if intent == "news":
-            count = int(parameter) if parameter else 3
+            try:
+                count = int(parameter) if parameter else 3
+            except (ValueError, TypeError):
+                count = 3
             news_data = self.news_service.get_top_news(count)
             return self.news_service.format_news(news_data)
 
@@ -112,7 +115,7 @@ def chat():
 def main():
     """Startet den Webserver."""
     print("🚀 KI-Assistent Web-Interface startet auf http://localhost:10000")
-    app.run(host="0.0.0.0", port=10000, debug=False)
+    app.run(host="127.0.0.1", port=10000, debug=False)
 
 
 if __name__ == "__main__":
