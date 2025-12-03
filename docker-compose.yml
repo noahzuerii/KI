@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - HTTP_PROXY=${HTTP_PROXY:-http://proxy4zscaler.migros.ch:9480}
+        - HTTPS_PROXY=${HTTPS_PROXY:-http://proxy4zscaler.migros.ch:9480}
     container_name: ki-assistant
     stdin_open: true    # Für interaktive Eingabe
     tty: true           # Für Terminal-Unterstützung
@@ -13,4 +16,5 @@ services:
       - NEWSAPI_KEY=${NEWSAPI_KEY:-}
       - DEFAULT_CITY=${DEFAULT_CITY:-Berlin}
       - HTTP_PROXY=${HTTP_PROXY:-http://proxy4zscaler.migros.ch:9480}
+      - HTTPS_PROXY=${HTTPS_PROXY:-http://proxy4zscaler.migros.ch:9480}
     restart: unless-stopped
